@@ -1,0 +1,141 @@
+.custom-navbar {
+  background-color: transparent !important;
+}
+
+.custom-navbar .navbar-nav {
+  text-align: right;
+  font-weight: 300;
+  font-size: 1.7rem;
+  color: black;
+}
+
+.custom-navbar .nav-link {
+  font-weight: 300;
+  font-size: 1.6rem;
+  color: black;
+  padding: 0;
+}
+
+.custom-navbar .nav-link.disabled {
+  font-weight: 300;
+  font-size: 1.6rem;
+  color: rgb(87, 85, 85);
+  padding: 0;
+}
+
+
+.custom-navbar .nav-link {
+  background: linear-gradient(120deg, rgb(189, 180, 243), rgb(68, 212, 49)) no-repeat right bottom / 0 var(--bg-h);
+  transition: background-size 1s;
+  --bg-h: 100%;
+}
+
+.custom-navbar .nav-link:where(:hover, :focus-visible) {
+  background-size: 100% var(--bg-h);
+  background-position-x: left;
+}
+
+.custom-navbar .navbar-brand {
+  font-weight: 300;
+  font-size: 1.9rem;
+}
+
+.rotating-text {
+  min-width: 10ch;
+}
+
+#circle {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  overflow: hidden;
+}
+
+#circle text {
+  font-size: 1.9rem;
+  font-weight: bold;
+}
+
+#circle svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  -webkit-animation-name: rotate;
+  -moz-animation-name: rotate;
+  -ms-animation-name: rotate;
+  -o-animation-name: rotate;
+  animation-name: rotate;
+  -webkit-animation-duration: 4s;
+  -moz-animation-duration: 4s;
+  -ms-animation-duration: 4s;
+  -o-animation-duration: 4s;
+  animation-duration: 4s;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  -ms-animation-timing-function: linear;
+  -o-animation-timing-function: linear;
+  animation-timing-function: linear;
+  animation-play-state: paused;
+
+}
+
+#circle svg:hover {
+  animation-play-state: running;
+}
+
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(360deg);
+  }
+
+  to {
+    -webkit-transform: rotate(0);
+  }
+}
+
+@-moz-keyframes rotate {
+  from {
+    -moz-transform: rotate(360deg);
+  }
+
+  to {
+    -moz-transform: rotate(0);
+  }
+}
+
+@-ms-keyframes rotate {
+  from {
+    -ms-transform: rotate(360deg);
+  }
+
+  to {
+    -ms-transform: rotate(0);
+  }
+}
+
+@-o-keyframes rotate {
+  from {
+    -o-transform: rotate(360deg);
+  }
+
+  to {
+    -o-transform: rotate(0);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0);
+  }
+}
