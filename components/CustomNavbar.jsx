@@ -1,6 +1,6 @@
 import React from "react";
 import { Nav, Navbar, Container, Col, Row } from "react-bootstrap";
-import RotatingText from "./RotatingTextNavbar";
+import RotatingText from "./RotatingText";
 import { useRouter } from "next/router";
 
 export const CustomNavbar = () => {
