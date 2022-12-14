@@ -1,6 +1,6 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
-@import './Home.module.css';
-@import './components.css';
+@import './Home.module.scss';
+@import './components.scss';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,400;1,400&display=swap');
 
@@ -12,12 +12,13 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Mono', sans-serif;
   overflow-y: scroll;
+  scroll-behavior: smooth;
 }
 mark{
-  padding: 0;
-  background-color: white;
+  padding: 0!important;
+  background-color: white!important;
 }
 a {
   color: inherit;

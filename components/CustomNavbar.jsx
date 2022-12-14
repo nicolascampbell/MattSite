@@ -8,7 +8,7 @@ export const CustomNavbar = () => {
   const getLink = (path) => `${router.basePath}${path}`;
 
   return (
-    <Navbar bg="light" expand="lg" className="custom-navbar m-lg-3">
+    <Navbar bg="light" className="custom-navbar m-lg-3">
       <Navbar.Brand href={getLink("/")} className="m-0">
         <RotatingText />
       </Navbar.Brand>

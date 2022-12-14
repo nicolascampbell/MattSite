@@ -3,19 +3,15 @@ import Box from "@mui/material/Box";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import { useRouter } from "next/router";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 export default function MasonryImageList() {
   const router = useRouter();
   const getLink = (path) => `${router.basePath}${path}`;
-
+  const matchesSmallDevices = useMediaQuery("(max-width:768px)");
   return (
-    <Box sx={{ overflowY: "scroll" }} className="d-flex justify-content-center">
-      <ImageList
-        variant="masonry"
-        cols={3}
-        gap={8}
-        sx={{ width: "80%", height: "auto" }}
-      >
+    <Box className="d-flex justify-content-center">
+      <ImageList variant="masonry" cols={matchesSmallDevices ? 2 : 3} gap={8}>
         {itemData.map((item) => (
           <ImageListItem key={item.img}>
             <img
