@@ -1,8 +1,8 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import './Home.module.scss';
 @import './components.scss';
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400&display=swap');
+@import './font-faces/roboto-mono.scss';
+@import './font-faces/roboto.scss';
 :root {
   --bs-nav-link-color: black;
 }
@@ -11,7 +11,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Roboto', 'Roboto Mono';
+  font-family: "Roboto Mono", "Roboto"!important;
   overflow-y: scroll;
   scroll-behavior: smooth;
 }
