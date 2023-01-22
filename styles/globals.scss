@@ -11,13 +11,16 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Roboto Mono", "Roboto"!important;
+  font-family: 'Roboto Mono', 'Roboto' !important;
   overflow-y: scroll;
   scroll-behavior: smooth;
 }
-mark{
-  padding: 0!important;
-  background-color: white!important;
+.scroll-lock {
+  overflow-y: hidden;
+}
+mark {
+  padding: 0 !important;
+  background-color: white !important;
 }
 a {
   color: inherit;
