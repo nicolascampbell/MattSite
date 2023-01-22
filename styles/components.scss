@@ -1,49 +1,134 @@
+$primary-accent-color: #8d7cf4;
+$secondary-accent-color: #44d431;
+$support-accent-color: #fff59b;
+$nav-link-bg-h: 0.3rem;
+$nav-link-gradient: linear-gradient(
+    120deg,
+    $primary-accent-color,
+    $secondary-accent-color
+  )
+  no-repeat right bottom / 0 $nav-link-bg-h;
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;400;500;600;700;800&display=swap');
+$menu-bg-color: $primary-accent-color;
 .custom-navbar {
   background-color: transparent !important;
   display: flex;
   justify-content: space-between;
   padding: 0 0.2rem;
-}
+  z-index: 200;
 
-.custom-navbar .navbar-nav {
-  text-align: right;
-  font-weight: 200;
-  font-size: 1.7rem;
-  color: black;
-}
+  label {
+    .menu {
+      font-weight: 400;
+      cursor: pointer;
+      font-size: 1.3rem;
+      .close {
+        display: none;
+      }
+      &:hover {
+        .menu-detail {
+          transform: scale(1.4);
+        }
+      }
+      .menu-detail {
+        background: $primary-accent-color;
+        width: 0.5rem;
+        height: 0.5rem;
+        -webkit-transition: 0.4s ease-in-out;
+        transition: 0.4s ease-in-out;
+        position: relative;
+        display: inline-block;
+        border-radius: 100%;
+      }
+    }
+    .menu-socials {
+      font-family: 'Source Code Pro', monospace;
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      opacity: 0;
+      -webkit-transition: 0.25s 0s ease-in-out;
+      transition: 0.25s 0s ease-in-out;
+      a:hover {
+        color: $support-accent-color;
+      }
+    }
+    .menu-items {
+      font-family: 'Source Code Pro', monospace;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      margin-top: 2rem;
+      opacity: 0;
+      -webkit-transition: 0.25s 0s ease-in-out;
+      transition: 0.25s 0s ease-in-out;
+      .nav-link {
+        text-align: right;
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: 1.5rem;
+        background: $nav-link-gradient;
+        transition: background-size ease-in-out 0.3s;
+        --bg-h: 0.3rem;
+        width: fit-content;
+        &:where(:hover, :focus-visible, :focus) {
+          background-size: 100% $nav-link-bg-h;
+          background-position-x: left;
+        }
+        &.disabled {
+          color: rgba(0, 0, 0, 0.589);
+          background: linear-gradient(
+              120deg,
+              $support-accent-color,
+              $primary-accent-color
+            )
+            no-repeat right bottom / 0 $nav-link-bg-h;
+          padding: 0;
+          background-size: 100% $nav-link-bg-h;
+        }
+      }
+    }
+    input {
+      display: none;
+      &:checked + .menu {
+        .close {
+          display: inline;
+        }
+        .open {
+          display: none;
+        }
+        .menu-title {
+          position: relative;
+          z-index: 1;
+        }
+        .menu-detail {
+          opacity: 1;
+          box-shadow: 0 0 0 150vw $menu-bg-color, 0 0 0 150vh $menu-bg-color;
+          background: $secondary-accent-color;
+          width: 0.5rem;
+          height: 0.5rem;
+          position: relative;
+          display: inline-block;
+        }
+      }
+      &:checked + .menu {
+        opacity: 1;
 
-.custom-navbar .nav-link {
-  font-weight: 200;
-  font-size: 1.6rem;
-  color: black;
-  padding: 0;
-}
-
-.custom-navbar .nav-link.disabled {
-  font-weight: 200;
-  font-size: 1.6rem;
-  color: rgb(87, 85, 85);
-  background: linear-gradient(120deg, rgb(255, 245, 155), rgb(189, 180, 243))
-    no-repeat right bottom / 0 var(--bg-h);
-  padding: 0;
-  background-size: 100% var(--bg-h);
-}
-
-.custom-navbar .nav-link {
-  background: linear-gradient(120deg, rgb(189, 180, 243), rgb(68, 212, 49))
-    no-repeat right bottom / 0 var(--bg-h);
-  transition: background-size ease-in-out 0.3s;
-  --bg-h: 100%;
-}
-
-.custom-navbar .nav-link:where(:hover, :focus-visible, :focus) {
-  background-size: 100% var(--bg-h);
-  background-position-x: left;
+        & + .menu-items {
+          opacity: 1;
+          & + .menu-socials {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
 }
 
 .custom-navbar .navbar-brand {
   font-weight: 300;
   font-size: 1.9rem;
+  z-index: 1;
 }
 
 .rotating-text {
@@ -61,7 +146,8 @@
   font-size: 1.9rem;
   font-weight: bold;
 }
-
+$rotating-text-duration: 20s;
+$rotating-text-hover-duration: 2s;
 #circle svg {
   position: absolute;
   left: 0;
@@ -73,11 +159,11 @@
   -ms-animation-name: rotate;
   -o-animation-name: rotate;
   animation-name: rotate;
-  -webkit-animation-duration: 2s;
-  -moz-animation-duration: 2s;
-  -ms-animation-duration: 2s;
-  -o-animation-duration: 2s;
-  animation-duration: 2s;
+  -webkit-animation-duration: $rotating-text-duration;
+  -moz-animation-duration: $rotating-text-duration;
+  -ms-animation-duration: $rotating-text-duration;
+  -o-animation-duration: $rotating-text-duration;
+  animation-duration: $rotating-text-duration;
   -webkit-animation-iteration-count: infinite;
   -moz-animation-iteration-count: infinite;
   -ms-animation-iteration-count: infinite;
@@ -88,13 +174,8 @@
   -ms-animation-timing-function: linear;
   -o-animation-timing-function: linear;
   animation-timing-function: linear;
-  animation-play-state: paused;
-}
-
-#circle svg:hover {
   animation-play-state: running;
 }
-
 @-webkit-keyframes rotate {
   from {
     -webkit-transform: rotate(360deg);
@@ -151,7 +232,7 @@
 }
 
 .about-page {
-  font-family: "Roboto Mono", "Roboto";
+  font-family: 'Roboto Mono', 'Roboto';
   font-weight: 300;
 }
 
