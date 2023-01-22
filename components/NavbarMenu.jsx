@@ -5,12 +5,13 @@ import { useRouter } from 'next/router'
 import { Stack } from '@mui/material'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail'
+import useMediaQuery from '@mui/material/useMediaQuery'
 export const NavbarMenu = () => {
   const [openMenu, setOpenMenu] = React.useState(false)
   const router = useRouter()
+  const matchesSmallDevices = useMediaQuery('(max-width:768px)')
   const getLink = (path) => `${router.basePath}${path}`
   function handleOpenMenu(shouldOpen) {
-    console.log(shouldOpen);
     if (shouldOpen) document.body.classList.add('scroll-lock')
     else document.body.classList.remove('scroll-lock')
     setOpenMenu(shouldOpen)
@@ -86,10 +87,12 @@ export const NavbarMenu = () => {
             <AlternateEmailIcon />
           </a>
         </Stack>
-        <div className="menu-content text-end">
-          <img src={getLink('/mona.jpg')} alt="" />
-          <small>Monadots (placeholder)</small>
-        </div>
+        {!matchesSmallDevices && (
+          <div className="menu-content text-end">
+            <img src={getLink('/mona.jpg')} alt="" />
+            <small>Monadots (placeholder)</small>
+          </div>
+        )}
       </label>
     </Navbar>
   )
