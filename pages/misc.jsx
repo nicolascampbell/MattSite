@@ -1,27 +1,26 @@
-import React from "react";
-import { Container, Col, Row } from "react-bootstrap";
-import { CustomNavbar } from "../components/CustomNavbar";
-import { Footer } from "../components/Footer";
-import YoutubeEmbed from "../components/YoutubeEmbed";
-const misc = () => {
+import React from 'react'
+import { Container, Col, Row } from 'react-bootstrap'
+
+import YoutubeEmbed from '../components/YoutubeEmbed'
+const Miscellaneous = () => {
   return (
-    <React.Fragment>
-      <Container style={{ height: "100vh" }} fluid>
-        <CustomNavbar />
-        <Row>
-          <Col
-            lg={{ span: 6, offset: 3 }}
-            className="d-flex justify-content-center"
-          >
-            <h5>Prontamente... Mientras tanto:</h5>
-          </Col>
-          <Col xs={{ span: 10, offset: 1 }}>
-            <YoutubeEmbed embedId="dzSiMeLqkI0" />
-          </Col>
-        </Row>
-      </Container>
-      <Footer />
-    </React.Fragment>
-  );
-};
-export default misc;
+    <Container fluid>
+      <Row>
+        <Col xs={12}>
+          <h1 className="fw-light text-center">Miscellaneous Page</h1>
+        </Col>
+        <Col xs={12} className="text-center">
+          <h5 className="fw-light">
+            Is comming somewhen! Meanwhile you can enjoy some music
+          </h5>
+        </Col>
+      </Row>
+      <Row>
+        <Col xs={{ span: 10, offset: 1 }}>
+          <YoutubeEmbed embedId="dzSiMeLqkI0" />
+        </Col>
+      </Row>
+    </Container>
+  )
+}
+export default Miscellaneous
