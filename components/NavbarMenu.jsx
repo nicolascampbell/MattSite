@@ -1,11 +1,13 @@
 import React from 'react'
-import { Nav, Navbar, Container, Col, Row } from 'react-bootstrap'
+import { Nav, Navbar } from 'react-bootstrap'
 import RotatingText from './RotatingText'
 import { useRouter } from 'next/router'
 import { Stack } from '@mui/material'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail'
 import useMediaQuery from '@mui/material/useMediaQuery'
+import Slide from '@mui/material/Slide'
+import Zoom from '@mui/material/Zoom'
 export const NavbarMenu = () => {
   const [openMenu, setOpenMenu] = React.useState(false)
   const router = useRouter()
@@ -32,66 +34,73 @@ export const NavbarMenu = () => {
           <span className="menu-title me-2 close">Close</span>
           <div className="menu-detail"></div>
         </div>
-        <Stack className="menu-items me-2" spacing={1} alignItems="flex-end">
-          <Nav.Link
-            href={getLink('/')}
-            disabled={router.pathname.slice(1) === ''}
-          >
-            Home
-          </Nav.Link>
-          <Nav.Link
-            href={getLink('/about')}
-            disabled={router.pathname.slice(1) === 'about'}
-          >
-            About
-          </Nav.Link>
-          <Nav.Link
-            href={getLink('/commercial')}
-            disabled={router.pathname.slice(1) === 'commercial'}
-          >
-            Commercial
-          </Nav.Link>
-          <Nav.Link
-            href={getLink('/personal')}
-            disabled={router.pathname.slice(1) === 'personal'}
-          >
-            Personal
-          </Nav.Link>
-          <Nav.Link
-            href={getLink('/films')}
-            disabled={router.pathname.slice(1) === 'films'}
-          >
-            Films
-          </Nav.Link>
-          <Nav.Link
-            href={getLink('/misc')}
-            disabled={router.pathname.slice(1) === 'misc'}
-          >
-            Miscellaneous
-          </Nav.Link>
-        </Stack>
-        <Stack className="menu-socials mb-3 me-3" direction="row" spacing={1}>
-          <span className="me-3">Contact me on</span>
-          <a
-            target="_blank"
-            href="https://www.instagram.com/mattgoez_/"
-            rel="noopener noreferrer"
-          >
-            <InstagramIcon />
-          </a>
-          <a
-            target="_blank"
-            href="mailto:matigoez.uy@gmail.com"
-            rel="noopener noreferrer"
-          >
-            <AlternateEmailIcon />
-          </a>
-        </Stack>
+        <Slide direction="left" in={openMenu}>
+          <Stack className="menu-items me-2"  alignItems="flex-end">
+            <Nav.Link
+              href={getLink('/')}
+              disabled={router.pathname.slice(1) === ''}
+            >
+              Home
+            </Nav.Link>
+            <Nav.Link
+              href={getLink('/about')}
+              disabled={router.pathname.slice(1) === 'about'}
+            >
+              About
+            </Nav.Link>
+            <Nav.Link
+              href={getLink('/commercial')}
+              disabled={router.pathname.slice(1) === 'commercial'}
+            >
+              Commercial
+            </Nav.Link>
+            <Nav.Link
+              href={getLink('/personal')}
+              disabled={router.pathname.slice(1) === 'personal'}
+            >
+              Personal
+            </Nav.Link>
+            <Nav.Link
+              href={getLink('/films')}
+              disabled={router.pathname.slice(1) === 'films'}
+            >
+              Films
+            </Nav.Link>
+            <Nav.Link
+              href={getLink('/misc')}
+              disabled={router.pathname.slice(1) === 'misc'}
+            >
+              Miscellaneous
+            </Nav.Link>
+          </Stack>
+        </Slide>
+        <Slide direction="up" in={openMenu} >
+          <Stack className="menu-socials mb-3 me-3" direction="row" spacing={1}>
+            <span className="me-2">Contact me on</span>
+            <a
+              target="_blank"
+              href="https://www.instagram.com/mattgoez_/"
+              rel="noopener noreferrer"
+            >
+              <InstagramIcon />
+            </a>
+            <a
+              target="_blank"
+              href="mailto:matigoez.uy@gmail.com"
+              rel="noopener noreferrer"
+            >
+              <AlternateEmailIcon />
+            </a>
+          </Stack>
+        </Slide>
+
         {!matchesSmallDevices && (
-          <div className="menu-content text-end">
-            <img src={getLink('/mona.jpg')} alt="" />
-            <small>Monadots (placeholder)</small>
-          </div>
+          <Zoom in={openMenu} style={{ transitionDelay: '400ms' }}>
+            <div className="menu-content text-end">
+              <img src={getLink('/mona.jpg')} alt="" />
+              <small>Monadots (placeholder)</small>
+            </div>
+          </Zoom>
         )}
       </label>
     </Navbar>
