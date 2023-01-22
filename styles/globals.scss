@@ -3,6 +3,7 @@
 @import './components.scss';
 @import './font-faces/roboto-mono.scss';
 @import './font-faces/roboto.scss';
+@import './font-faces/manrope.scss';
 :root {
   --bs-nav-link-color: black;
 }
@@ -11,7 +12,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Roboto Mono', 'Roboto' !important;
+  font-family: 'Manrope', sans-serif!important;
   overflow-y: scroll;
   scroll-behavior: smooth;
 }
