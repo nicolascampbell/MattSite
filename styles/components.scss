@@ -8,8 +8,10 @@ $nav-link-gradient: linear-gradient(
     $secondary-accent-color
   )
   no-repeat right bottom / 0 $nav-link-bg-h;
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;400;500;600;700;800&display=swap');
 $menu-bg-color: $primary-accent-color;
+a:hover {
+  color: $primary-accent-color;
+}
 .custom-navbar {
   background-color: transparent !important;
   display: flex;
@@ -42,11 +44,9 @@ $menu-bg-color: $primary-accent-color;
       }
     }
     .menu-socials {
-      font-family: 'Source Code Pro', monospace;
       position: fixed;
       right: 0;
       bottom: 0;
-      opacity: 0;
       -webkit-transition: 0.25s 0s ease-in-out;
       transition: 0.25s 0s ease-in-out;
       a:hover {
@@ -54,12 +54,11 @@ $menu-bg-color: $primary-accent-color;
       }
     }
     .menu-items {
-      font-family: 'Source Code Pro', monospace;
       position: absolute;
       right: 0;
       top: 50%;
-      margin-top: 2rem;
-      opacity: 0;
+      margin-top: 4rem;
+
       -webkit-transition: 0.25s 0s ease-in-out;
       transition: 0.25s 0s ease-in-out;
       .nav-link {
@@ -89,9 +88,6 @@ $menu-bg-color: $primary-accent-color;
       }
     }
     .menu-content {
-      opacity: 0;
-      -webkit-transition: 0.25s 0s ease-in-out;
-      transition: 0.25s 0s ease-in-out;
       position: fixed;
       bottom: 15%;
       left: 15%;
@@ -106,38 +102,30 @@ $menu-bg-color: $primary-accent-color;
     }
     input {
       display: none;
-      &:checked ~ .menu-content {
-        opacity: 1;
-      }
       &:checked + .menu {
         .close {
           display: inline;
+          -webkit-transition: 0.4s ease-in-out;
+          transition: 0.4s ease-in-out;
         }
         .open {
           display: none;
+          -webkit-transition: 0.4s ease-in-out;
+          transition: 0.4s ease-in-out;
         }
         .menu-title {
           position: relative;
           z-index: 1;
+          -webkit-transition: 0.4s ease-in-out;
+          transition: 0.4s ease-in-out;
         }
         .menu-detail {
-          opacity: 1;
           box-shadow: 0 0 0 150vw $menu-bg-color, 0 0 0 150vh $menu-bg-color;
           background: $secondary-accent-color;
           width: 0.5rem;
           height: 0.5rem;
           position: relative;
           display: inline-block;
-        }
-      }
-      &:checked + .menu {
-        opacity: 1;
-
-        & + .menu-items {
-          opacity: 1;
-          & + .menu-socials {
-            opacity: 1;
-          }
         }
       }
     }
@@ -251,7 +239,7 @@ $rotating-text-hover-duration: 2s;
 }
 
 .about-page {
-  font-family: 'Roboto Mono', 'Roboto';
+  font-family:'Roboto', sans-serif;
   font-weight: 300;
 }
 
