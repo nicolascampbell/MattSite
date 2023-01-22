@@ -88,8 +88,27 @@ $menu-bg-color: $primary-accent-color;
         }
       }
     }
+    .menu-content {
+      opacity: 0;
+      -webkit-transition: 0.25s 0s ease-in-out;
+      transition: 0.25s 0s ease-in-out;
+      position: fixed;
+      bottom: 15%;
+      left: 15%;
+      width: 200px;
+      img {
+        position: relative;
+        width: 200px;
+        height: auto;
+        z-index: 100;
+        display: block;
+      }
+    }
     input {
       display: none;
+      &:checked ~ .menu-content {
+        opacity: 1;
+      }
       &:checked + .menu {
         .close {
           display: inline;

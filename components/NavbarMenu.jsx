@@ -6,16 +6,26 @@ import { Stack } from '@mui/material'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail'
 export const NavbarMenu = () => {
+  const [openMenu, setOpenMenu] = React.useState(false)
   const router = useRouter()
   const getLink = (path) => `${router.basePath}${path}`
-
+  function handleOpenMenu(shouldOpen) {
+    console.log(shouldOpen);
+    if (shouldOpen) document.body.classList.add('scroll-lock')
+    else document.body.classList.remove('scroll-lock')
+    setOpenMenu(shouldOpen)
+  }
   return (
     <Navbar bg="light" className="custom-navbar">
       <Navbar.Brand href={getLink('/')} className="m-0">
         <RotatingText />
       </Navbar.Brand>
       <label className="me-2">
-        <input type="checkbox" />
+        <input
+          type="checkbox"
+          value={openMenu}
+          onChange={(e) => handleOpenMenu(e.target.checked)}
+        />
         <div className="menu">
           <span className="menu-title me-2 open">Menu</span>
           <span className="menu-title me-2 close">Close</span>
@@ -76,6 +86,10 @@ export const NavbarMenu = () => {
             <AlternateEmailIcon />
           </a>
         </Stack>
+        <div className="menu-content text-end">
+          <img src={getLink('/mona.jpg')} alt="" />
+          <small>Monadots (placeholder)</small>
+        </div>
       </label>
     </Navbar>
   )
