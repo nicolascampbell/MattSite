@@ -1,12 +1,21 @@
-import "../styles/globals.scss";
-import SSRProvider from "react-bootstrap/SSRProvider";
+import '../styles/globals.scss'
+import SSRProvider from 'react-bootstrap/SSRProvider'
+import { Container, Col, Row } from 'react-bootstrap'
+import { Footer } from '../components/Footer'
+import  NavbarMenu  from '../components/NavbarMenu'
 
 function MyApp({ Component, pageProps }) {
-	return (
-		<SSRProvider>
-			<Component {...pageProps} />
-		</SSRProvider>
-	);
+  return (
+    <SSRProvider>
+      <Container style={{ height: '100vh' }} fluid>
+        <NavbarMenu />
+        <Row>
+          <Component {...pageProps} />
+        </Row>
+      </Container>
+      <Footer />
+    </SSRProvider>
+  )
 }
 
-export default MyApp;
+export default MyApp
