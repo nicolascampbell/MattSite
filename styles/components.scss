@@ -28,4 +28,8 @@ footer {
     // background-color: $secondary-accent-color;
     text-align: center;
   }
+
+}
+#fp-nav ul li a span, .fp-slidesNav ul li a span{
+  background-color: shade-color($primary-accent-color, 10%)!important;
 }

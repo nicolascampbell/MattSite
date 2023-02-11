@@ -33,7 +33,7 @@ a:hover {
       }
     }
     .menu-detail {
-      background: $primary-accent-color;
+      background: shade-color($primary-accent-color, 15%);
       width: 0.5rem;
       height: 0.5rem;
       -webkit-transition: 0.4s ease-in-out;
