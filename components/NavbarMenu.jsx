@@ -3,13 +3,15 @@ import { Nav, Navbar } from 'react-bootstrap'
 import RotatingText from './RotatingText'
 import { useRouter } from 'next/router'
 import { Stack } from '@mui/material'
-import InstagramIcon from '@mui/icons-material/Instagram'
-import AlternateEmailIcon from '@mui/icons-material/AlternateEmail'
+
 import useMediaQuery from '@mui/material/useMediaQuery'
 import Slide from '@mui/material/Slide'
 import Zoom from '@mui/material/Zoom'
+import { useKeyPress } from 'hooks/useKeyPress'
 export const NavbarMenu = () => {
   const [openMenu, setOpenMenu] = React.useState(false)
+  const escPress = useKeyPress('Escape')
+
   const router = useRouter()
   const matchesSmallDevices = useMediaQuery('(max-width:768px)')
   const getLink = (path) => `${router.basePath}${path}`
@@ -18,12 +20,18 @@ export const NavbarMenu = () => {
     else document.body.classList.remove('scroll-lock')
     setOpenMenu(shouldOpen)
   }
+  React.useEffect(() => {
+    if (openMenu) handleOpenMenu(false)
+  }, [escPress])
   function navigateAndClose(route) {
     router.push(route).then(() => handleOpenMenu(false))
   }
   return (
     <Navbar bg="light" className="custom-navbar">
-      <Navbar.Brand onClick={() => navigateAndClose('/')} className="m-0 cursor-pointer">
+      <Navbar.Brand
+        onClick={() => navigateAndClose('/')}
+        className="m-0 cursor-pointer"
+      >
         <RotatingText />
       </Navbar.Brand>
       <div
