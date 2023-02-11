@@ -18,5 +18,14 @@ footer {
   padding: 0.5rem;
   font-weight: 200;
   color: tint-color($primary-font-color, 20%);
-  margin-top: 2rem  ;
+  margin-top: 2rem;
+}
+.fullpage-container {
+  position: fixed !important;
+  width: 100%;
+  top: 0;
+  .fullpage-section {
+    // background-color: $secondary-accent-color;
+    text-align: center;
+  }
 }

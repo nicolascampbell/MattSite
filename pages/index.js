@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import { Container, Col, Row } from 'react-bootstrap'
-
+import ReactFullpage from '@fullpage/react-fullpage'
+// import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
+// import { IconButton } from '@mui/material'
 export default function Home() {
   const router = useRouter()
   const getLink = (path) => `${router.basePath}${path}`
@@ -56,24 +58,62 @@ export default function Home() {
   }, [playbackRate])
 
   return (
-    <Container fluid ref={body}>
-      <Row>
-        <Col
-          lg={{ span: 6, offset: 3 }}
-          className="d-flex justify-content-center"
-        >
-          <video
-            ref={videoRef}
-            autoPlay
-            loop
-            className="home-images"
-            width="600"
-            height="600"
-          >
-            <source src={getLink('/home-vid.mp4')} type="video/mp4" />
-          </video>
-        </Col>
-      </Row>
-    </Container>
+    <div className="my-4 mb-5 fullpage-container">
+      <ReactFullpage
+        //fullpage options
+        licenseKey={'YOUR_KEY_HERE'}
+        scrollingSpeed={700} /* Options here */
+        fitToSection
+        keyboardScrolling
+        navigation
+        paddingBottom={'10px'}
+        render={({ state, fullpageApi }) => {
+          return (
+            <ReactFullpage.Wrapper>
+              <div className="section fullpage-section" ref={body}>
+                <Container fluid ref={body}>
+                  <Row>
+                    <Col
+                      lg={{ span: 6, offset: 3 }}
+                      className="d-flex justify-content-center"
+                    >
+                      <video
+                        ref={videoRef}
+                        autoPlay
+                        loop
+                        className="home-images"
+                        width="600"
+                        height="600"
+                      >
+                        <source
+                          src={getLink('/home-vid.mp4')}
+                          type="video/mp4"
+                        />
+                      </video>
+                    </Col>
+                  </Row>
+                  {/* <Row className='mt-4'>
+                    <Col>
+                      <IconButton onClick={() => fullpageApi.moveSectionDown()}>
+                        <KeyboardArrowDownIcon />
+                      </IconButton>
+                    </Col>
+                  </Row> */}
+                </Container>
+              </div>
+              <div className=" section fullpage-section">
+                <h3>Project 1</h3>
+              </div>
+              <div className="section  fullpage-section">
+                <h3>Project 2</h3>
+              </div>
+              <div className="section  fullpage-section">
+                <h3>Project 3</h3>
+              </div>
+            </ReactFullpage.Wrapper>
+          )
+        }}
+      />
+    </div>
   )
 }
