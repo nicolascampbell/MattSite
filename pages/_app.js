@@ -1,23 +1,24 @@
-import '../styles/globals.scss'
-import SSRProvider from 'react-bootstrap/SSRProvider'
-import { Container, Col, Row } from 'react-bootstrap'
-import { Footer } from '../components/Footer'
-import NavbarMenu from '../components/NavbarMenu'
+import 'styles/globals.scss'
 
+import SSRProvider from 'react-bootstrap/SSRProvider'
+import { Unstable_Grid2 as Grid } from '@mui/material' // Grid version 2
+import { Footer } from '../components/Footer'
+import NavbarMenu from 'components/NavbarMenu'
+import Head from 'next/head'
 function MyApp({ Component, pageProps }) {
   return (
     <SSRProvider>
-      <Container style={{ height: '100vh' }} fluid>
-        <NavbarMenu />
-        <Row>
+      <Head>
+        <title>Mattgoez</title>
+      </Head>
+      <Grid padding={2} container style={{ height: '100vh' }}>
+        <Grid item xs={12}>
+          <NavbarMenu />
+        </Grid>
+        <Grid item xs={12}>
           <Component {...pageProps} />
-        </Row>
-        <Row>
-          <Col>
-            <Footer />
-          </Col>
-        </Row>
-      </Container>
+        </Grid>
+      </Grid>
     </SSRProvider>
   )
 }

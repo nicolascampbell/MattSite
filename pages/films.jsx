@@ -6,7 +6,7 @@ const Films = () => {
     <Container fluid>
       <Row>
         <Col xs={12}>
-          <h1 className="fw-light text-center">Films Page</h1>
+          <h1 className=" text-center ">Films Page</h1>
         </Col>
         <Col xs={12} className="text-center">
           <h5 className="fw-light">
@@ -14,7 +14,7 @@ const Films = () => {
           </h5>
         </Col>
       </Row>
-      <Row className='mt-4'>
+      <Row className='mt-5'>
         <Col>
           <ImageList />
         </Col>

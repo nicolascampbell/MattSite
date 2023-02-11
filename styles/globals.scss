@@ -1,18 +1,31 @@
+// Required
 @import 'bootstrap/dist/css/bootstrap.min.css';
-@import './Home.module.scss';
+@import 'bootstrap/scss/functions';
+
+// Default variable overrides
+// Variables
+@import './variables.scss';
+
+// Required
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+// Pages
+@import './pages/about.scss';
+// Components
+@import './components/navbar.scss';
 @import './components.scss';
-@import './font-faces/roboto-mono.scss';
-@import './font-faces/roboto.scss';
-@import './font-faces/manrope.scss';
-:root {
-  --bs-nav-link-color: black;
-}
+// @import './font-faces/roboto-mono.scss';
+// @import './font-faces/roboto.scss';
+// @import './font-faces/manrope.scss';
+@import './font-faces/josefin-sans.scss';
+@import './font-faces/chivo-mono.scss';
+
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Manrope', sans-serif!important;
+  font-family: $font-family ;
   overflow-y: scroll;
   overflow-x: hidden;
   scroll-behavior: smooth;
@@ -20,10 +33,7 @@ body {
 .scroll-lock {
   overflow-y: hidden;
 }
-mark {
-  padding: 0 !important;
-  background-color: white !important;
-}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -39,13 +49,33 @@ a {
   }
 
   body {
-    color: black;
-    background: white;
+    color: $primary-font-color;
+    background: tint-color($primary-accent-color, 98%);
   }
 }
 
-footer {
-  text-align: center;
-  padding: 0.5rem;
-  font-weight: 100;
+@media (prefers-color-scheme: light) {
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    color: $primary-font-color;
+    background: tint-color($primary-accent-color, 97%);
+  }
+}
+.img-subtitle {
+  display: block;
+  float: right;
+  font-size: 0.8rem;
+  color:  $primary-font-color;
+  font-weight: 400;
+  font-family: $font-family-monospace;
+}
+.home-images {
+  max-width: 100%;
+  height: auto;
+}
+.cursor-pointer{
+  cursor: pointer;
 }

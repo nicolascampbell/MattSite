@@ -7,7 +7,7 @@ const Miscellaneous = () => {
     <Container fluid>
       <Row>
         <Col xs={12}>
-          <h1 className="fw-light text-center">Miscellaneous Page</h1>
+          <h1 className=" text-center">Miscellaneous Page</h1>
         </Col>
         <Col xs={12} className="text-center">
           <h5 className="fw-light">
