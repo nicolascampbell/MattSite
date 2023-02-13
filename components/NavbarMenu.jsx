@@ -16,8 +16,13 @@ export const NavbarMenu = () => {
   const matchesSmallDevices = useMediaQuery('(max-width:768px)')
   const getLink = (path) => `${router.basePath}${path}`
   function handleOpenMenu(shouldOpen) {
-    if (shouldOpen) document.body.classList.add('scroll-lock')
-    else document.body.classList.remove('scroll-lock')
+    if (shouldOpen) {
+      document.body.classList.add('scroll-lock')
+      document.documentElement.classList.add('scroll-lock')
+    } else {
+      document.body.classList.remove('scroll-lock')
+      document.documentElement.classList.remove('scroll-lock')
+    }
     setOpenMenu(shouldOpen)
   }
   React.useEffect(() => {
