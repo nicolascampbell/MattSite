@@ -29,7 +29,9 @@ body {
   overflow-y: scroll;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  min-height: 100vh;
 }
+
 .scroll-lock {
   overflow-y: hidden;
 }
@@ -64,18 +66,21 @@ a {
     background: tint-color($primary-accent-color, 97%);
   }
 }
+
 .img-subtitle {
   display: block;
   float: right;
   font-size: 0.8rem;
-  color:  $primary-font-color;
+  color: $primary-font-color;
   font-weight: 400;
   font-family: $font-family-monospace;
 }
+
 .home-images {
   max-width: 100%;
   height: auto;
 }
-.cursor-pointer{
+
+.cursor-pointer {
   cursor: pointer;
 }

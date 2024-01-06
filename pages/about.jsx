@@ -11,17 +11,16 @@ export default function About() {
     <Grid container justifyContent={'center'} className="about-page">
       <Grid xs={5} md={5}>
         <Image
-          src={getLink('/about_mati.webp')}
-          srcSet={getLink('/about_mati.webp')}
+          src={getLink('/about_mati2.jpg')}
+          srcSet={getLink('/about_mati2.jpg')}
           alt={'Foto of Matias'}
           loading="lazy"
-          height={1999}
-          width={3000}
+          height={1756}
+          width={1429}
         />
-        <span className="img-subtitle"> Foto of Matt</span>
       </Grid>
-      <Grid xs={10} md={6} lg={5} mdOffset={1}>
-        <div className="about-text">
+      <Grid xs={10} md={6}  >
+        <div className="about-text p-3">
           <h2 className='mb-4'>Matías Gonzales</h2>
           <p style={{ whiteSpace: 'pre-line' }}>
             Bienvenue a la pagina de Matias. Si bien Matias y su cabeza no
