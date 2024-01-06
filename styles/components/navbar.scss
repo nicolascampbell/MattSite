@@ -1,14 +1,11 @@
 $nav-link-bg-h: 0.3rem;
-$nav-link-gradient: linear-gradient(
-    120deg,
-    $primary-accent-color,
-    $secondary-accent-color
-  )
-  no-repeat right bottom / 0 $nav-link-bg-h;
+$nav-link-accent-color: $primary-accent-color;
 $menu-bg-color: $primary-accent-color;
+
 a:hover {
   color: $primary-accent-color;
 }
+
 .custom-navbar {
   display: flex;
   justify-content: space-between;
@@ -24,16 +21,19 @@ a:hover {
     position: relative;
     cursor: pointer;
     font-size: 1rem;
+
     .close {
       display: none;
     }
+
     &:hover {
       .menu-detail {
         transform: scale(1.4);
       }
     }
+
     .menu-detail {
-      background: shade-color($primary-accent-color, 15%);
+      background: $primary-accent-color;
       width: 0.5rem;
       height: 0.5rem;
       -webkit-transition: 0.4s ease-in-out;
@@ -43,6 +43,7 @@ a:hover {
       border-radius: 100%;
     }
   }
+
   .menu-socials {
     position: fixed;
     right: 0;
@@ -51,10 +52,12 @@ a:hover {
     font-weight: 500;
     -webkit-transition: 0.25s 0s ease-in-out;
     transition: 0.25s 0s ease-in-out;
+
     a:hover {
       color: $support-accent-color;
     }
   }
+
   .menu-items {
     position: absolute;
     right: 0;
@@ -62,37 +65,36 @@ a:hover {
     margin-top: 4rem;
     -webkit-transition: 0.25s 0s ease-in-out;
     transition: 0.25s 0s ease-in-out;
+
     .nav-link {
       text-align: right;
       text-transform: uppercase;
       font-weight: 400;
       font-size: 1.5rem;
-      background: $nav-link-gradient;
       transition: background-size ease-in-out 0.3s;
       --bg-h: 0.3rem;
       width: fit-content;
+
       &:where(:hover, :focus-visible, :focus) {
-        background-size: 100% $nav-link-bg-h;
-        background-position-x: left;
-      }
-      &.disabled {
-        color: rgba(0, 0, 0, 0.589);
-        background: linear-gradient(
-            120deg,
-            $support-accent-color,
-            $primary-accent-color
-          )
-          no-repeat right bottom / 0 $nav-link-bg-h;
+        background: linear-gradient(120deg, $nav-link-accent-color, $nav-link-accent-color) no-repeat right center;
         padding: 0;
         background-size: 100% $nav-link-bg-h;
       }
+
+      &.disabled {
+        background: linear-gradient(120deg, $nav-link-accent-color, $nav-link-accent-color) no-repeat right bottom 28%;
+        padding: 0;
+        background-size: 100% 40%;
+      }
     }
   }
+
   .menu-content {
     position: fixed;
     bottom: 15%;
     left: 15%;
     width: 200px;
+
     img {
       position: relative;
       width: 200px;
@@ -101,25 +103,29 @@ a:hover {
       display: block;
     }
   }
+
   .isOpen {
     .close {
       display: inline;
       -webkit-transition: 0.4s ease-in-out;
       transition: 0.4s ease-in-out;
     }
+
     .open {
       display: none;
       -webkit-transition: 0.4s ease-in-out;
       transition: 0.4s ease-in-out;
     }
+
     .menu-title {
       position: relative;
       z-index: 1;
       -webkit-transition: 0.4s ease-in-out;
       transition: 0.4s ease-in-out;
     }
+
     .menu-detail {
-      box-shadow: 0 0 0 150vw $menu-bg-color, 0 0 0 150vh $menu-bg-color;
+      box-shadow: 0 0 0 150vw white, 0 0 0 150vh white;
       background: $secondary-accent-color;
       width: 0.5rem;
       height: 0.5rem;
@@ -150,8 +156,10 @@ a:hover {
   font-size: 1.9rem;
   font-weight: bold;
 }
+
 $rotating-text-duration: 20s;
 $rotating-text-hover-duration: 2s;
+
 #circle svg {
   position: absolute;
   left: 0;
@@ -180,6 +188,7 @@ $rotating-text-hover-duration: 2s;
   animation-timing-function: linear;
   animation-play-state: running;
 }
+
 @-webkit-keyframes rotate {
   from {
     -webkit-transform: rotate(360deg);

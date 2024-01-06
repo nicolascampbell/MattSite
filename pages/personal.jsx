@@ -1,25 +1,13 @@
 import React from 'react'
-import { Container, Col, Row } from 'react-bootstrap'
-import ImageList from '../components/ImageList'
+import { Unstable_Grid2 as Grid } from '@mui/material' // Grid version 2
+import ImageList from '../components/Overview'
 const Personal = () => {
   return (
-    <Container fluid>
-      <Row>
-        <Col xs={12}>
-          <h1 className=" text-center">Personal Page</h1>
-        </Col>
-        <Col xs={12} className="text-center">
-          <h5 className="fw-light">
-            Is comming soon! Meanwhile you can look at some pictures
-          </h5>
-        </Col>
-      </Row>
-      <Row className='mt-5'>
-        <Col>
+    <Grid container xs={12}>
+        <Grid xs={12}>
           <ImageList />
-        </Col>
-      </Row>
-    </Container>
+        </Grid>
+    </Grid>
   )
 }
 export default Personal

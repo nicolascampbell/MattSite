@@ -9,7 +9,7 @@ export default function About() {
   const getLink = (path) => `${router.basePath}${path}`
   return (
     <Grid container justifyContent={'center'} className="about-page">
-      <Grid xs={5} md={5}>
+      <Grid xs={12} sm={7} md={5} lg={4}>
         <Image
           src={getLink('/about_mati2.jpg')}
           srcSet={getLink('/about_mati2.jpg')}
@@ -19,8 +19,8 @@ export default function About() {
           width={1429}
         />
       </Grid>
-      <Grid xs={10} md={6}  >
-        <div className="about-text p-3">
+      <Grid xs={12} sm={8} md={8}  lg={4} lgOffset={1} className="d-flex flex-column justify-content-center align-content-center">
+        <div className="about-text p-4">
           <h2 className='mb-4'>Matías Gonzales</h2>
           <p style={{ whiteSpace: 'pre-line' }}>
             Bienvenue a la pagina de Matias. Si bien Matias y su cabeza no

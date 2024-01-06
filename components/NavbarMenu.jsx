@@ -84,7 +84,7 @@ export const NavbarMenu = () => {
             onClick={() => navigateAndClose('/misc')}
             disabled={router.pathname.slice(1) === 'misc'}
           >
-            Miscellaneous
+            Musica
           </Nav.Link>
         </Stack>
       </Slide>
