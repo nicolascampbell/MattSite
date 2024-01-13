@@ -1,13 +1,12 @@
 import 'styles/globals.scss'
-
-import SSRProvider from 'react-bootstrap/SSRProvider'
+import React from 'react'
 import { Unstable_Grid2 as Grid } from '@mui/material' // Grid version 2
 import { Footer } from '../components/Footer'
 import NavbarMenu from 'components/NavbarMenu'
 import Head from 'next/head'
 function MyApp({ Component, pageProps }) {
   return (
-    <SSRProvider>
+    <React.Fragment>
       <Head>
         <title>Mattgoez</title>
       </Head>
@@ -19,7 +18,7 @@ function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
         </Grid>
       </Grid>
-    </SSRProvider>
+    </React.Fragment>
   )
 }
 

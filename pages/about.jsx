@@ -1,22 +1,19 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import { Unstable_Grid2 as Grid } from '@mui/material' // Grid version 2
-import InstagramIcon from '@mui/icons-material/Instagram'
-import AlternateEmailIcon from '@mui/icons-material/AlternateEmail'
-import Image from 'next/image'
 export default function About() {
   const router = useRouter()
   const getLink = (path) => `${router.basePath}${path}`
   return (
     <Grid container justifyContent={'center'} className="about-page">
       <Grid xs={12} sm={7} md={5} lg={4}>
-        <Image
+        <img
           src={getLink('/about_mati2.jpg')}
           srcSet={getLink('/about_mati2.jpg')}
           alt={'Foto of Matias'}
           loading="lazy"
-          height={1756}
-          width={1429}
+          height={"auto"}
+          width={"100%"}
         />
       </Grid>
       <Grid xs={12} sm={8} md={8}  lg={4} lgOffset={1} className="d-flex flex-column justify-content-center align-content-center">
